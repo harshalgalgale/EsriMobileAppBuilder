@@ -8,6 +8,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.js" type="text/javascript"></script>
     <script src="js/knockout-2.0.0.js" type="text/javascript"></script>
     <script src="js/admin.js" type="text/javascript"></script>
+
+    <script type="text/html" id="layer-template">
+                        <li>
+                            <span data-bind="text:id"></span>
+                            <span data-bind="text:name"></span>
+                            <input type="checkbox" data-bind="checked:included" />
+                            <ul data-bind="foreach:$data.fields">
+                                <li>
+                                    <span data-bind="text:name"></span>
+                                    <span data-bind="text:alias"></span>
+                                    <input type="checkbox" data-bind="checked:included" />
+                                </li>
+                            </ul>
+                        </li>
+    </script>
 </head>
 <body>
     <div id="container">
@@ -36,21 +51,20 @@
         <div id="configure">
             <div id="tabs">
                 <ul data-bind="foreach:$root.services_being_configured">
-                    <li>
+                    <li class="tab-header">
                         <a data-bind="attr: {href: '#tab' +$data.name}">
                             <span data-bind="text:$data.name"></span>
                         </a>
                     </li>
                 </ul>
                 <!-- ko foreach: $root.services_being_configured -->
-                <div data-bind="attr: {id: 'tab' +$data.name}">
+                <div data-bind="attr: {id: 'tab' +$data.name}" class="tab-content">
                     <span data-bind="text:$data.name"></span>
                     <span data-bind="text:$data.type"></span>
                     <span data-bind="text:$data.url"></span>
-                    <div class="layers" data-bind="foreach: $data.layers">
-                            <span data-bind="text:$data.name"></span>
-                            <span data-bind="text:$data.id"></span>
-                    </div>
+                    <ul class="layers" data-bind="template: {name: 'layer-template', foreach: $data.layers}">
+                        
+                    </ul>
                 </div>
                 <!-- /ko -->
             </div>

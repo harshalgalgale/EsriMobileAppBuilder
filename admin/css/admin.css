@@ -8,3 +8,10 @@
         width:90%;
         margin:1em;
     }
+    
+    #tabs {}
+    #tabs .tab-header { font-size:1.0em;}
+    #tabs .tab-content { font-size:0.7em; }
+    #tabs .tab-content { display:block; }
+    #tabs .layers { }
+    #tabs .layers li { display:block; }
