@@ -1,0 +1,10 @@
+﻿    .config fieldset 
+    {
+        width:24em;
+    }    
+    .config fieldset input 
+    {
+        display:block;
+        width:90%;
+        margin:1em;
+    }
