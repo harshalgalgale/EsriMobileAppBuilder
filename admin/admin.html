@@ -39,36 +39,49 @@
         <div id="container">
             <div class="accordion">
                 <h3>
-                    <a href="#">Layout</a></h3>
-                <div class="accordion-content">
-                    <p>
-                        Layout stuff</p>
-                </div>
-                <h3>
                     <a href="#">Layers</a></h3>
                 <div class="accordion-content">
-                    <div class="add-server">
+                    <div class="add-server stylized">
                         <div class="ui-widget collapse">
-                            <div id="expander-demo-control" class="expander-header">
-                                <span class="ui-icon ui-expander" style="float:left;margin-right:1.1em;"></span>
-                                <span style="display: inline">Add Services</span>
+                            <div id="expander-demo-control" class="ui-widget-header expander-header">
+                                <span class="ui-icon ui-expander" style="float: left; margin-right: 1.1em;"></span>
+                                <span class="expander-header-text" style="display: inline">Service Discovery</span>
                             </div>
-                            <div id="expander-demo" class="expander-content">
-                                <input type="text" id="inpUrl" value="http://www2.richlandmaps.com/arcgis/rest/services" />
-                                <input type="text" id="inpToken" value="" />
-                                <button id="btnGo">
-                                    Go</button>
+                            <div class="expander-content">
+                                <div>
+                                    <h1>
+                                        Add Server</h1>
+                                    <span class="row">
+                                    <label>
+                                        Url<span class="small">REST endpoint</span></label>
+                                    <input type="text" id="inpUrl" value="http://www2.richlandmaps.com/arcgis/rest/services" />
+                                    </span>
+                                    <span class="row">
+                                    <label>
+                                        Token<span class="small">REST Token</span></label>
+                                    <input type="text" id="inpToken" value="" />
+                                    </span>
+                                    <span class="row">
+                                    <button id="btnGo" type="submit">
+                                        Go</button>
+                                    </span>
+                                    <div class="spacer">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div id="services">
-                        <span>Please select the services you want to use on your mobile application</span>
-                        <ul data-bind="foreach: $root.Services">
-                            <li><span data-bind="text:$data.name"></span><span data-bind="text:$data.type"></span>
-                                <input type="text" data-bind="value:$data.url" />
-                                <input type="checkbox" data-bind="checked: $data.included" />
-                            </li>
-                        </ul>
+                    <div id="services" class="stylized">
+                        <h1>
+                            Select services for use on mobile application</h1>
+                        <!-- ko foreach: $root.Services -->
+                        <div class="row">
+                            <span class="col1"><a data-bind="attr: {href:$data.url}" target="_blank"><span data-bind="text:$data.name">
+                            </span></a></span><span class="col2"><span data-bind="text:$data.type"></span></span>
+                            <span class="col3">
+                                <input type="checkbox" data-bind="checked: $data.included" /></span>
+                        </div>
+                        <!-- /ko -->
                         <button id="btnConfigure" data-bind="visible:$root.canConfigure">
                             Configure</button>
                     </div>
@@ -88,6 +101,12 @@
                             <!-- /ko -->
                         </div>
                     </div>
+                </div>
+                <h3>
+                    <a href="#">Layout</a></h3>
+                <div class="accordion-content">
+                    <p>
+                        Layout stuff</p>
                 </div>
                 <h3>
                     <a href="#">Widgets</a></h3>

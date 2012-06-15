@@ -2,28 +2,6 @@
 {
     height: 100%;
 }
-.toggle-panel
-{
-}
-.toggle-panel .toggle-panel-header
-{
-    display: inline-block;
-}
-.toggle-panel .toggle-panel-content
-{
-    display: block;
-}
-.config fieldset
-{
-    width: 24em;
-}
-.config fieldset input
-{
-    display: block;
-    width: 90%;
-    margin: 1em;
-}
-
 #tabs
 {
 }
@@ -46,3 +24,86 @@
 {
     display: block;
 }
+
+.accordion-content 
+{
+    font-size:0.8em;
+    padding:0.1em;
+}
+
+.collapse {}
+.collapse .expander-header{}
+.collapse .expander-header-text{}
+.collapse .expander-content {font-size:0.8em;}
+.collapse .expander-content ul { list-style-type:none; margin:0; padding: 3px;}
+.collapse .expander-content ul li {margin-bottom:0.6em; list-style-position:outside;}
+.collapse .expander-content ul li label {margin-right:0.6em; font-weight:bold; width:72px;}
+
+/* ----------- stylized ----------- */
+.stylized{
+border:solid 2px #b7ddf2;
+background:#ebf4fb;
+padding:3px;
+width:98%;
+min-width:320px;
+overflow:hidden;
+}
+.stylized h1 {
+font-size:12px;
+font-weight:bold;
+margin-bottom:8px;
+}
+.stylized p{
+font-size:11px;
+color:#666666;
+margin-bottom:20px;
+border-bottom:solid 1px #b7ddf2;
+padding-bottom:10px;
+}
+.stylized .row 
+{
+    width:100%;
+    display:block;
+}
+.stylized label{
+display:block;
+font-weight:bold;
+text-align:right;
+min-width:80px;
+width:15%;
+float:left;
+}
+.stylized .small{
+color:#666666;
+display:block;
+font-size:10px;
+font-weight:normal;
+text-align:right;
+width:80px;
+}
+.stylized input[type="text"]{
+float:left;
+font-size:11px;
+padding:4px 2px;
+border:solid 1px #aacfe4;
+min-width:320px;
+width:75%;
+margin:2px 0 10px 10px;
+}
+.stylized button{
+clear:both;
+margin:10px;
+width:90px;
+height:31px;
+background:#666666;
+text-align:center;
+line-height:31px;
+color:#FFFFFF;
+font-size:11px;
+font-weight:bold;
+}
+
+#services .row {width:100%;display:block;clear:both;font-size:small;}
+#services .row .col1 {width:50%;display:inline-block;}
+#services .row .col2 {width:30%;display:inline-block;}
+#services .row .col3 {width:18%;display:inline-block;}
