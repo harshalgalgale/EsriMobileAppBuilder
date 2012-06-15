@@ -52,8 +52,11 @@ App.Service = function (name, type) {
     self.url = ko.observable(App.baseUrl + "/" + name + "/MapServer");
     self.included = ko.observable(false);
     self.layers = ko.observableArray([]);
-    //self.allLayerData = null;
-
+    self.beginConfigure = function () {
+        alert("Configuring " + self.name);
+        App.model.services_being_configured.push(self);
+        self.configure();
+    };
     self.configure = function () {
         $.getJSON(self.url() + "?f=json&callback=?", function (data) {
             if (data) {
@@ -85,16 +88,8 @@ App.Service = function (name, type) {
                     var layer = new App.Layer(layerData.name, layerData.id, svcUrl);
                     underlyingArray.push(layer);
                 }
+
                 self.layers.valueHasMutated();
-
-                //                for (var i = 0, il = data.layers.length; i < il; i = i + 1) {
-                //                    var layerData = data.layers[i];
-                //                    //Layer JSON Object members => id, name, parentLayerId, defaultVisibility, subLayerIds, minScale, maxScale
-                //                    var layer = new App.Layer(layerData.name, layerData.id, svcUrl);
-                //                    underlyingArray.push(layer);
-                //                }
-
-                //                self.layers.valueHasMutated();
             }
         });
     };
@@ -170,9 +165,9 @@ $(document).ready(function () {
     $('#configure').hide();
 
     //create model and apply bindings
-    var model = new App.Model();
+    App.model = new App.Model();
     //ko.applyBindings(model, $('#services')[0]);
-    ko.applyBindings(model);
+    ko.applyBindings(App.model);
 
     //jquery-layout init
     $('body').layout({ west__size: 500 });

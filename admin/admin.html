@@ -79,7 +79,9 @@
                             <span class="col1"><a data-bind="attr: {href:$data.url}" target="_blank"><span data-bind="text:$data.name">
                             </span></a></span><span class="col2"><span data-bind="text:$data.type"></span></span>
                             <span class="col3">
-                                <input type="checkbox" data-bind="checked: $data.included" /></span>
+                                <input type="checkbox" data-bind="checked: $data.included" />
+                                <img src="css/imgs/19-gear.png" data-bind="visible: $data.included, click:$data.beginConfigure" />    
+                            </span>
                         </div>
                         <!-- /ko -->
                         <button id="btnConfigure" data-bind="visible:$root.canConfigure">

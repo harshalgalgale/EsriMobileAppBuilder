@@ -107,3 +107,4 @@ font-weight:bold;
 #services .row .col1 {width:50%;display:inline-block;}
 #services .row .col2 {width:30%;display:inline-block;}
 #services .row .col3 {width:18%;display:inline-block;}
+#services .row .col3 img {width:14px;height:14px;}
