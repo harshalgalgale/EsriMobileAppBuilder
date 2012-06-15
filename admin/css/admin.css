@@ -1,17 +1,48 @@
-﻿    .config fieldset 
-    {
-        width:24em;
-    }    
-    .config fieldset input 
-    {
-        display:block;
-        width:90%;
-        margin:1em;
-    }
-    
-    #tabs {}
-    #tabs .tab-header { font-size:1.0em;}
-    #tabs .tab-content { font-size:0.7em; }
-    #tabs .tab-content { display:block; }
-    #tabs .layers { }
-    #tabs .layers li { display:block; }
+﻿#container
+{
+    height: 100%;
+}
+.toggle-panel
+{
+}
+.toggle-panel .toggle-panel-header
+{
+    display: inline-block;
+}
+.toggle-panel .toggle-panel-content
+{
+    display: block;
+}
+.config fieldset
+{
+    width: 24em;
+}
+.config fieldset input
+{
+    display: block;
+    width: 90%;
+    margin: 1em;
+}
+
+#tabs
+{
+}
+#tabs .tab-header
+{
+    font-size: 1.0em;
+}
+#tabs .tab-content
+{
+    font-size: 0.7em;
+}
+#tabs .tab-content
+{
+    display: block;
+}
+#tabs .layers
+{
+}
+#tabs .layers li
+{
+    display: block;
+}

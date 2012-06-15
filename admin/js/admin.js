@@ -126,12 +126,12 @@ $(document).ready(function () {
         var url = $('#inpUrl').val();
         App.baseUrl = url;
         var datasent = {};
-        
+
         $.ajax({
             url: url + "?f=json&callback=?", //extra string added to url for cross domain requests
             dataType: 'json',
             data: null,
-            async:true,
+            async: true,
             success: function (data) {
                 if (data) {
                     var i, il = 0;
@@ -174,7 +174,12 @@ $(document).ready(function () {
     //ko.applyBindings(model, $('#services')[0]);
     ko.applyBindings(model);
 
+    //jquery-layout init
+    $('body').layout({ west__size: 500 });
+    $('.accordion').accordion({ fillSpace: true });
+    $('.collapse').collapsiblePanel();
 });
+
 
 function error(msg) {
     alert(msg);
