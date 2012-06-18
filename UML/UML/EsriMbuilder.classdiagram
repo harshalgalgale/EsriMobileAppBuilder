@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="b854facd-1235-4b49-9c28-abca91e0a491" name="EsriMbuilder" linkedPackageId="d2597323-4c2b-4497-a2cf-f27f163b74d8" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="549bdd80-18d6-4be6-9891-33136ff7e3fc">
+      <profileInstance Id="747dc7a3-cb90-4658-a7d4-df27411d0497" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="febc271b-15a2-431d-9c9e-3d0e2a7c42da">
+      <profileInstance Id="20b642f7-6888-44d0-88a0-b9f5ea9aa3f7" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="dd844fd1-2e13-4568-849f-90987f865166" name="ServiceFinder" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c2c2a91a-0a02-4e62-851a-b5ca71d89b3e" />
+        <suppliersInternal>
+          <dependency Id="80eab3c6-05cc-4c93-8909-562e50e86593">
+            <interfaceMoniker Id="f4874308-6589-409b-830a-492fa094b72c" LastKnownName="ESRIService" />
+            <elementDefinition Id="6513ed43-5401-4175-ae4e-1387193b97c7" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributes>
+          <property Id="693e0965-5fcb-45d8-91b2-d781a38674cc" name="BaseUrl" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2787870a-9e42-476c-9782-61ffd234489d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="a9714b11-c45f-4568-b165-a207ed8cca42" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="510095a5-3bd1-4129-beb9-d767929f032a" name="Token" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c9c75766-b856-4eb8-8400-a5fcc4f167db" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="a9714b11-c45f-4568-b165-a207ed8cca42" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="46c6110c-2085-41e7-89fc-ae571aef2a5a" name="Services[]" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f4451875-5c8c-4515-8724-896fec44140a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0d74f790-b2ba-4cab-b9ee-efd3c1d7ca70" LastKnownName="ESRIService" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributes>
+        <ownedOperations>
+          <operation Id="84c8900b-f09e-4aab-8187-1c117fe49aff" name="Discover" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="94e15840-befd-479e-a5aa-caacc846dd96" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e584bfbc-121a-44bc-b430-613f7340fffa" name="url" direction="In" isUnique="false">
+                  <elementDefinition Id="25f9a653-65ed-4119-971d-0bdc77cdfd01" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1e373bee-dd41-4492-897c-bee82c4b1fe3" name="token" direction="In" isUnique="false">
+                  <elementDefinition Id="fcee8696-7c41-4444-9998-d132df0a9cf1" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="a9714b11-c45f-4568-b165-a207ed8cca42" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="f4874308-6589-409b-830a-492fa094b72c" name="ESRIService" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5ca9708b-e16a-4223-bbe1-3ceb5b9ba4d2" />
+        <suppliersInternal>
+          <dependency Id="34d28b8e-f649-468f-8cf1-2b07c64b2139">
+            <interfaceMoniker Id="a121de7a-b0ca-4657-b75c-f72e44e603ec" LastKnownName="ESRILayer" />
+            <elementDefinition Id="3f60229e-9c1f-421d-a698-301bf3f1104d" />
+          </dependency>
+          <dependency Id="a8cdfb2f-14d8-4797-a0d2-23e97e8965fb">
+            <enumerationMoniker Id="4928a83b-04f0-4fdf-9035-222371beb311" LastKnownName="ESRIServiceTypes" />
+            <elementDefinition Id="39473971-236c-4172-aee3-2c2c9a30ec84" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributes>
+          <property Id="2e750a87-07ae-433b-b909-d961075b4acb" name="Url" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="7599c58d-e5e8-401b-a090-8a752f4b9460" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="a9714b11-c45f-4568-b165-a207ed8cca42" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="964b9809-632d-4627-a231-27c0caf6058f" name="Type" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ee626186-25cd-4162-bdc9-e6c365e796e4" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c9eadf49-c4ae-43d5-ad32-88a60c9ab755" LastKnownName="ESRIServiceTypes" />
+            </type_NamedElement>
+          </property>
+          <property Id="8ac6777e-c262-4774-88d0-3b129c46fcf2" name="Layers[]" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0f3a135a-817e-445a-bb2c-bfb3adfb0537" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ce4db15f-7906-4e1c-ac5a-2c473e88430a" LastKnownName="ESRILayer" />
+            </type_NamedElement>
+          </property>
+          <property Id="3f81be6d-6554-4218-9ea5-ea8e89e831ad" name="Selected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d4736620-94ac-401e-8b04-fba672e53fe0" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7adb427f-1cb4-444c-ba39-27994e3b9916" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributes>
+        <ownedOperations>
+          <operation Id="dd242bc9-43e4-4d7d-968c-650a534033f5" name="DiscoverLayers:ESRILayer" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="e2909048-ab91-46a3-924c-8f632092d4ba" />
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <enumeration Id="4928a83b-04f0-4fdf-9035-222371beb311" name="ESRIServiceTypes" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b29d99a9-13bf-4e6b-9acd-66b62472f035" />
+        <ownedLiterals>
+          <enumerationLiteral Id="eb41479f-6a74-4f6e-b833-a95cf1cd740b" name="DynamicMapService">
+            <elementDefinition Id="b03b8012-6580-46e3-b7a6-38c15d3cc5c8" />
+            <specification>
+              <literalInteger Id="e82c99a4-21e0-4d40-bf1a-2b55a69a2925" name="Integer" value="1">
+                <elementDefinition Id="edaefb53-08ad-4a60-bece-f7f2c5d47e8b" />
+              </literalInteger>
+            </specification>
+          </enumerationLiteral>
+          <enumerationLiteral Id="f7271382-953e-4835-9838-9750c90e42a9" name="CachedMapService">
+            <elementDefinition Id="9dda3b2d-bbce-48c6-918a-90e070660f38" />
+            <specification>
+              <literalInteger Id="642001bc-2f56-41b1-bc2b-beaa7fd4d2ef" name="Integer" value="2">
+                <elementDefinition Id="1a66fb18-5a72-40f1-b9c5-38a69dda5d58" />
+              </literalInteger>
+            </specification>
+          </enumerationLiteral>
+          <enumerationLiteral Id="0a5eedc4-80e9-4ff4-83b0-6036ea5b44d4" name="GeometryService">
+            <elementDefinition Id="85b9ce32-48c8-4f33-95e9-6cb065057fe0" />
+            <specification>
+              <literalInteger Id="f4721fbc-3a55-453c-9dc6-6dff137a18a5" name="Integer" value="3">
+                <elementDefinition Id="819195c4-266b-47d0-a99b-7f85b697a350" />
+              </literalInteger>
+            </specification>
+          </enumerationLiteral>
+          <enumerationLiteral Id="f1dd999c-5e85-4e48-9dfc-40de6d4c5617" name="NetworkService">
+            <elementDefinition Id="b2ab542b-a093-42e2-8472-38f021f37246" />
+            <specification>
+              <literalInteger Id="89d92f60-0c31-4a34-ba3a-e7019445a734" name="Integer" value="4">
+                <elementDefinition Id="a92f3ae1-b10b-47e5-8721-af9c37deb408" />
+              </literalInteger>
+            </specification>
+          </enumerationLiteral>
+          <enumerationLiteral Id="14f405c2-156c-4731-bd41-809fec4d4ee5" name="GeocodingService">
+            <elementDefinition Id="4cb49a22-f7e9-449e-8fb9-e2f6dc54b272" />
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="c9eadf49-c4ae-43d5-ad32-88a60c9ab755" name="ESRIServiceTypes" isAbstract="false" isLeaf="false" cachedFullName="UML::ESRIServiceTypes">
+        <elementDefinition Id="b29d99a9-13bf-4e6b-9acd-66b62472f035" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="a121de7a-b0ca-4657-b75c-f72e44e603ec" name="ESRILayer" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d9e3f8d7-e7a6-49a8-a9ff-64de2b24780b" />
+        <suppliersInternal>
+          <dependency Id="4e45ed81-f696-4ad2-87e2-cd9a168b4678">
+            <interfaceMoniker Id="3302876d-be9a-4484-9e36-b1856e8adc1c" LastKnownName="ESRIField" />
+            <elementDefinition Id="36ad640b-4033-4992-a64c-54ba3bc8a03d" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributes>
+          <property Id="3f45f2dd-eae4-4d6b-993a-482f3a445003" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="56d9decf-4751-410b-9daf-37bef93baa4b" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="a9714b11-c45f-4568-b165-a207ed8cca42" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="85f1bf0b-670b-4aad-805b-e37df915a5ce" name="Url" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="34270533-4f42-4edd-84df-7316b67505ce" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c48a9277-f593-4eef-ad79-010ae4f35c42" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="ccb9e428-9c25-4305-8dd3-e016d418f6fc" name="Fields[]" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8c08685d-8d7e-4c91-b7ff-99a32b905b14" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="21ad8cde-9b39-4ec7-aea7-ee179e00477b" LastKnownName="ESRIField" />
+            </type_NamedElement>
+          </property>
+          <property Id="af7d9a28-017b-440d-950f-27e599e88fed" name="Selected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0b158866-081a-4902-b5cc-b017939d5f02" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7adb427f-1cb4-444c-ba39-27994e3b9916" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+          <property Id="fe817130-8001-4fff-814a-6a6ad038b2ab" name="Symbology" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d10016e3-9fab-4d44-ba35-6295def7cf5a" />
+          </property>
+          <property Id="b20d7a5f-2fcb-43e7-9f8a-5a078a59327c" name="Weight" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a5856241-f284-4f76-9844-f592a1454b3e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="a5a5e6de-e647-44f7-a728-1b0d5c910ede" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributes>
+        <ownedOperations>
+          <operation Id="d62fa1b4-60d7-497f-82ec-07ef0ca04cf3" name="DiscoverFields" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="893cb345-c762-454b-82fc-68f0e54e3742" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3608de67-eebf-4187-887a-49d546b4c1f2" direction="Return">
+                  <elementDefinition Id="4f9e404f-8d1d-4e81-930d-f3b089a812bf" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="cb957bcf-a1b3-4067-8aa7-3c243cff1f75" LastKnownName="ESRIField" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="3302876d-be9a-4484-9e36-b1856e8adc1c" name="ESRIField" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c214011c-1bf1-4d11-ba30-1aaadd4ee4d9" />
+        <ownedAttributes>
+          <property Id="2e578124-c63e-4868-b9d3-f9448addaa76" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="94323d57-c251-4e14-aa95-cfc2330dad42" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="a9714b11-c45f-4568-b165-a207ed8cca42" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="0081d3ed-eb57-4da4-bd4e-1776af208619" name="Alias" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d6990f24-e5ca-4219-a9e1-d0f09111f924" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="a9714b11-c45f-4568-b165-a207ed8cca42" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="cbf4118e-3b32-435f-84b7-1ad169b352de" name="Selected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e91dfef5-3250-4ed0-bd67-8524d940abd6" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7adb427f-1cb4-444c-ba39-27994e3b9916" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributes>
+        <ownedOperations>
+          <operation Id="1db29127-5799-494a-a049-d3bd4f288ae5" name="New" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="bb28fd40-e44b-4ecf-872c-7c984be96799" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c5fe0a98-14f7-4e31-8cfe-5875fa47cd27" name="name" direction="In" isUnique="false">
+                  <elementDefinition Id="42c32fa5-6088-4286-bee8-b8047fa034bc" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="08252680-24d8-43e5-a3e2-a6eec297e40e" name="alias" direction="In" isUnique="false">
+                  <elementDefinition Id="f3e7024e-82cd-49bd-87d8-07d96f5f61eb" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7c2da6f5-be83-41e5-af06-3fc98f78be95" name="selected" direction="In" isUnique="false">
+                  <elementDefinition Id="b7505ff7-05a7-427b-8ef4-283be30def86" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4ab478f7-6f90-4ce4-b712-8aaaf20b4529" direction="Return">
+                  <elementDefinition Id="5796af06-cc5c-425d-b1c6-57614514b0d4" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="21ad8cde-9b39-4ec7-aea7-ee179e00477b" LastKnownName="ESRIField" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="7adb427f-1cb4-444c-ba39-27994e3b9916" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="bcc3cb7e-58d1-4fa8-8f70-1f494830dcd3" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="21ad8cde-9b39-4ec7-aea7-ee179e00477b" name="ESRIField" isAbstract="false" isLeaf="false" cachedFullName="UML::ESRIField">
+        <elementDefinition Id="c214011c-1bf1-4d11-ba30-1aaadd4ee4d9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="c48a9277-f593-4eef-ad79-010ae4f35c42" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="0d74f790-b2ba-4cab-b9ee-efd3c1d7ca70" name="ESRIService" isAbstract="false" isLeaf="false" cachedFullName="UML::ESRIService">
+        <elementDefinition Id="5ca9708b-e16a-4223-bbe1-3ceb5b9ba4d2" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="cb957bcf-a1b3-4067-8aa7-3c243cff1f75" name="ESRIField" isAbstract="false" isLeaf="false" cachedFullName="UML::ESRIField">
+        <elementDefinition Id="c214011c-1bf1-4d11-ba30-1aaadd4ee4d9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="ce4db15f-7906-4e1c-ac5a-2c473e88430a" name="ESRILayer" isAbstract="false" isLeaf="false" cachedFullName="UML::ESRILayer">
+        <elementDefinition Id="d9e3f8d7-e7a6-49a8-a9ff-64de2b24780b" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="61b92e63-9cf2-4605-ae8b-fd3ec936b27d" name="IdentifyTool" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="67affccb-79a5-4015-9abf-ef68f304f818" />
+        <suppliersInternal>
+          <dependency Id="cc921c84-e138-4860-9ff8-f67541c49e31" name="ESRIService:MapService">
+            <interfaceMoniker Id="f4874308-6589-409b-830a-492fa094b72c" LastKnownName="ESRIService" />
+            <elementDefinition Id="163a15b7-3112-49ba-b9fd-a801598fed46" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperations>
+          <operation Id="a308ddbd-4c6a-4601-8629-476ea6fa0478" name="FindAndConnect" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c099d5bd-1cd4-44ac-9e02-808fcacf8a09" />
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="06adb65a-6f94-43bd-9e43-c05073cccd97" name="FindAddressTool" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a9563535-4152-49dc-a23c-4d797b6dc0f9" />
+        <suppliersInternal>
+          <dependency Id="4eb857de-01c8-4534-aea6-554bd6eab2e3" name="ESRIService:GeocodingService">
+            <interfaceMoniker Id="f4874308-6589-409b-830a-492fa094b72c" LastKnownName="ESRIService" />
+            <elementDefinition Id="533e3e6c-d3cc-4696-8370-f31616f59ca2" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperations>
+          <operation Id="d05dd0ed-2031-44ee-8c44-47b9f1a977ba" name="FindAndConnect" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="08df4225-d279-465d-9048-a5e96975805a" />
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="b437df69-4a16-4d87-826f-93182734af67" name="MapMaker" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e9c3d0d7-0a48-4ca5-a6cd-447e4c642a92" />
+        <suppliersInternal>
+          <dependency Id="60ca7c33-46f1-4222-8ff2-f052ab01299d">
+            <interfaceMoniker Id="f4874308-6589-409b-830a-492fa094b72c" LastKnownName="ESRIService" />
+            <elementDefinition Id="5d18f96f-58c1-46c9-aa27-bdb689e93dd5" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributes>
+          <property Id="41174771-3423-4fb2-9707-aa2105cc7775" name="Services[]" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="85b00ad0-fe78-4907-bed3-ae226ed0d55c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0d74f790-b2ba-4cab-b9ee-efd3c1d7ca70" LastKnownName="ESRIService" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributes>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="f8a95f89-980a-47a0-b358-006d846672a4" name="LayerChooser" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5d506072-6cf6-4217-b550-802a8a16ec46" />
+        <suppliersInternal>
+          <dependency Id="5c74e7d8-db5e-469f-9764-336e42d4aefa">
+            <interfaceMoniker Id="f4874308-6589-409b-830a-492fa094b72c" LastKnownName="ESRIService" />
+            <elementDefinition Id="18bb79f9-6141-4ad5-aebb-5cfc06d0a2e2" />
+          </dependency>
+        </suppliersInternal>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="a5a5e6de-e647-44f7-a728-1b0d5c910ede" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="18ff35c7-f300-4040-8356-60ca763230a0" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="d2597323-4c2b-4497-a2cf-f27f163b74d8" name="UML">
+    <elementDefinition Id="c86d5ed9-3d2a-49a2-bf67-965e07d6c984" />
+  </package>
+</logicalClassDesignerModel>

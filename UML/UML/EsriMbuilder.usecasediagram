@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="7cab4b94-8d53-498c-95a6-9164a83d3dd3" name="EsriMbuilder" linkedPackageId="6c9e44c4-9e45-40b3-b7fb-f5cd870d5d18" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="c8275195-9de5-4aaa-9b6e-3465f1000326">
+      <profileInstance Id="ab1c8335-cacd-4759-a664-e295d6b985af" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="ada61096-1255-4fd3-94ce-1653ab914684">
+      <profileInstance Id="978912f1-54ec-43af-a0ec-a1b1a6db8191" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="f0eb5511-1261-46e2-b388-0329f9fff4c5" name="Mobile Site Creator" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8acd51e9-2382-4ad0-8eae-f1fe4be9e0b0" />
+        <targetEnds>
+          <association Id="bd7639d4-5279-42b6-ba59-79a93688064d" isDerived="false" sourceEndRoleName="Mobile Site Creator" targetEndRoleName="Discover REST Services" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="8c553657-6397-4b9c-9259-2547e5f2548f" LastKnownName="Discover REST Services" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b438e02d-8511-4b79-9aa0-c6585b0c481d" name="Mobile Site Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a2399e9c-4c20-4493-8ec8-1a6683f99ba8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="1dbf83e8-b1de-45c8-9954-b277606ab960" name="Discover REST Services" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="cd9c2972-4028-4220-bdb1-b0761c4b32c8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="4f8092fa-019a-43a9-8bde-efd462b17192" />
+          </association>
+          <association Id="ae861309-a90c-497e-ac11-d28fae0f4421" isDerived="false" sourceEndRoleName="Mobile Site Creator" targetEndRoleName="Configure REST Services" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="523653d2-119b-4c03-9946-d2150f8aa766" LastKnownName="Configure REST Services" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e144a85b-52c8-46b4-984d-e0eefb5a5123" name="Mobile Site Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d10d1e6e-2796-4950-a6ff-bff1c4f3c44d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="878f9cc6-3ef1-4a31-9a70-d669bb7eb276" name="Configure REST Services" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="21a3f536-f903-413e-8500-5534a70e7ea6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e9d6d034-b120-4f7e-8dcd-e3cf6040705e" />
+          </association>
+          <association Id="c0a08ba6-bf4e-4446-af50-16cdff9bfff3" isDerived="false" sourceEndRoleName="Mobile Site Creator" targetEndRoleName="Design app  layout" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="2d2a4d2d-4e96-4997-a6bc-5981a1f0c1d3" LastKnownName="Design app  layout" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c0331d6b-b7ef-49f7-a48a-f3c3d3e0819d" name="Mobile Site Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c2355f4e-0f57-40e8-bb44-01ccd0327c83" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="27644c5f-464c-4b2d-b8e2-247d0c5bac59" name="Design app  layout" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="666e2203-9013-4e35-b9e7-a4ea74e58b02" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a1931f83-6cd8-4d72-9b6c-1d76ae37c70c" />
+          </association>
+          <association Id="8a6f548a-0763-4844-bb55-05c9e0db78b5" isDerived="false" sourceEndRoleName="Mobile Site Creator" targetEndRoleName="Publish Application" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="5b97cb4b-8e3c-4dc1-91c7-0d22520dca8b" LastKnownName="Publish Application" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="57632c41-678b-47bb-b567-c4cff08b5369" name="Mobile Site Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b4041372-1e7c-4617-b16c-08af7a09c05b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0b28de66-8cdd-4cca-8824-95dde45d8e78" name="Publish Application" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="76e7bb33-f590-4388-a0bc-9208b6ae8c08" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="1cc1f1ff-1dd3-47b1-87bd-80bb7013941b" />
+          </association>
+          <association Id="adebcc1e-8d26-4696-80c6-e3a3d128c964" isDerived="false" sourceEndRoleName="Mobile Site Creator" targetEndRoleName="Authentication" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="b8e9a0b4-2703-4cdb-ae0b-63ca9d72810a" LastKnownName="Authentication" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="429a8cf6-09f5-4161-8b76-0a77356770c9" name="Mobile Site Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4289ac1d-6468-4459-a9bb-f3b8b1211154" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4a3b0b35-80b9-4679-96a3-0315f2db5124" name="Authentication" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b29df384-bdc0-478b-9035-681d04a6cfbd" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="5483a1c4-de9b-450e-892f-f8ec75478009" />
+          </association>
+          <association Id="d5e5a0cb-0497-44b5-9597-0c5d96459fd1" isDerived="false" sourceEndRoleName="Mobile Site Creator" targetEndRoleName="Configure App = app layout + esri function selection" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="d540bef1-bb43-4816-8360-25e19b10b1a5" LastKnownName="Configure App = app layout + esri function selection" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="00c7cf08-a5e3-46fb-8245-1432a5373531" name="Mobile Site Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e9c422b7-ceaa-416e-a037-6545a8e627cc" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4276926c-4427-49c6-b9ea-ec3bfe013f2c" name="Configure App = app layout + esri function selection" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="babcf997-8004-464d-beee-12fb04684a86" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="26598202-8f7c-463e-859b-84d6eb6c5f14" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="8c553657-6397-4b9c-9259-2547e5f2548f" name="Discover REST Services" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="46b3eefe-e1f2-45c7-b8a4-037f06c57ccf" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="523653d2-119b-4c03-9946-d2150f8aa766" name="Configure REST Services" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="54f472b8-263c-413b-a74f-5d7c45a9064e" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2d2a4d2d-4e96-4997-a6bc-5981a1f0c1d3" name="Design app  layout" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="799a4c8c-67db-494f-9cc3-91204dcfc835" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5b97cb4b-8e3c-4dc1-91c7-0d22520dca8b" name="Publish Application" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a127eb0b-a89c-4d77-87d5-970b1c97597d" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b8e9a0b4-2703-4cdb-ae0b-63ca9d72810a" name="Authentication" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7e17afa7-243e-45e9-abc3-0bafee95140b" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d540bef1-bb43-4816-8360-25e19b10b1a5" name="Configure App = app layout + esri function selection" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1aaf39e5-5d25-4998-a67c-0290feb6b322" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="6c9e44c4-9e45-40b3-b7fb-f5cd870d5d18" name="UML">
+    <elementDefinition Id="c86d5ed9-3d2a-49a2-bf67-965e07d6c984" />
+  </package>
+</useCaseModelRoot>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="EsriMbuilder">
+  <useCaseModelRootMoniker Id="7cab4b94-8d53-498c-95a6-9164a83d3dd3" />
+  <nestedChildShapes>
+    <actorShape Id="b0b85947-d40f-462e-9089-98675690119a" absoluteBounds="1.625, 2.625, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="f0eb5511-1261-46e2-b388-0329f9fff4c5" LastKnownName="Mobile Site Creator" />
+      <relativeChildShapes />
+    </actorShape>
+    <useCaseShape Id="a2c2d2ae-65b4-41b8-a298-ad88abc3634f" absoluteBounds="4.25, 0.875, 1.625, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="8c553657-6397-4b9c-9259-2547e5f2548f" LastKnownName="Discover REST Services" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(2.125 : 2.71253530428268); (4.26503751718902 : 1.32181312806759)]" fixedFrom="Algorithm" fixedTo="Caller" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="bd7639d4-5279-42b6-ba59-79a93688064d" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="b0b85947-d40f-462e-9089-98675690119a" />
+        <useCaseShapeMoniker Id="a2c2d2ae-65b4-41b8-a298-ad88abc3634f" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="c97eb1de-584c-4130-82e4-a05132dbf339" absoluteBounds="4.125, 2, 1.875, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="523653d2-119b-4c03-9946-d2150f8aa766" LastKnownName="Configure REST Services" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(2.125 : 2.82383720947594); (4.12995908473791 : 2.41352000282894)]" fixedFrom="Algorithm" fixedTo="Caller" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="ae861309-a90c-497e-ac11-d28fae0f4421" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="b0b85947-d40f-462e-9089-98675690119a" />
+        <useCaseShapeMoniker Id="c97eb1de-584c-4130-82e4-a05132dbf339" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="0309fad4-c706-4b30-a15f-606d074af19d" absoluteBounds="4.25, 3.25, 1.75, 0.625" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="2d2a4d2d-4e96-4997-a6bc-5981a1f0c1d3" LastKnownName="Design app  layout" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(2.125 : 2.9407894744871); (4.26543537017869 : 3.50406194719769)]" fixedFrom="Algorithm" fixedTo="Caller" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="c0a08ba6-bf4e-4446-af50-16cdff9bfff3" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="b0b85947-d40f-462e-9089-98675690119a" />
+        <useCaseShapeMoniker Id="0309fad4-c706-4b30-a15f-606d074af19d" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="3e5d7727-a439-4bb9-8d93-bc2f4fb904a9" absoluteBounds="3.5, 5.625, 1.875, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="5b97cb4b-8e3c-4dc1-91c7-0d22520dca8b" LastKnownName="Publish Application" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(2.01222859302075 : 3.125); (3.53479679205255 : 5.89878089637909)]" fixedFrom="Algorithm" fixedTo="Caller" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="8a6f548a-0763-4844-bb55-05c9e0db78b5" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="b0b85947-d40f-462e-9089-98675690119a" />
+        <useCaseShapeMoniker Id="3e5d7727-a439-4bb9-8d93-bc2f4fb904a9" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="fc4a42da-9354-41b6-9ec7-98454785b988" absoluteBounds="2.5, 0.75, 1.125, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="b8e9a0b4-2703-4cdb-ae0b-63ca9d72810a" LastKnownName="Authentication" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(2.03333333333333 : 2.625); (2.91008946652105 : 1.24064821075624)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="adebcc1e-8d26-4696-80c6-e3a3d128c964" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="b0b85947-d40f-462e-9089-98675690119a" />
+        <useCaseShapeMoniker Id="fc4a42da-9354-41b6-9ec7-98454785b988" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="90b6edb8-8c1b-4671-a969-8d3c495457c1" absoluteBounds="4.375, 4.375, 2, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="d540bef1-bb43-4816-8360-25e19b10b1a5" LastKnownName="Configure App = app layout + esri function selection" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(2.125 : 3.05606995806508); (4.38626895566365 : 4.69386145796864)]" fixedFrom="Algorithm" fixedTo="Caller" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="d5e5a0cb-0497-44b5-9597-0c5d96459fd1" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="b0b85947-d40f-462e-9089-98675690119a" />
+        <useCaseShapeMoniker Id="90b6edb8-8c1b-4671-a969-8d3c495457c1" />
+      </nodes>
+    </useCaseAssociationConnector>
+  </nestedChildShapes>
+</useCaseDiagram>
