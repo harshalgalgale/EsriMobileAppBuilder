@@ -7,27 +7,50 @@
     <link href="css/taitems-Aristo-jQuery-UI-Theme/css/Aristo/Aristo.css" rel="stylesheet"
         type="text/css" />
     <link href="jquery-layout/layout-default-latest.css" rel="stylesheet" type="text/css" />
+    <link href="jquery-quick-pagination/css/styles.css" rel="stylesheet" type="text/css" />
     <link href="css/admin.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js" type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.js"
         type="text/javascript"></script>
     <script src="jquery-layout/jquery.layout-1.3.0.rc30.51.js" type="text/javascript"></script>
     <script src="js/collapsible-panel.js" type="text/javascript"></script>
+    <script src="jquery-quick-pagination/js/jquery.quick.pagination.min.js" type="text/javascript"></script>
     <script src="js/knockout-2.0.0.js" type="text/javascript"></script>
+    <script src="jquery.ba-postmessage.js" type="text/javascript"></script>
+    <script src="js/GISModel.js" type="text/javascript"></script>
+    <script src="js/Layout.js" type="text/javascript"></script>
     <script src="js/admin.js" type="text/javascript"></script>
-    <script type="text/html" id="layer-template">
-                        <li>
-                            <span data-bind="text:id"></span>
-                            <span data-bind="text:name"></span>
-                            <input type="checkbox" data-bind="checked:included" />
-                            <ul data-bind="foreach:$data.fields">
+    <script type="text/html" id="field-template">
                                 <li>
-                                    <span data-bind="text:name"></span>
-                                    <span data-bind="text:alias"></span>
-                                    <input type="checkbox" data-bind="checked:included" />
+                                    <span data-bind="text:$data.name"></span>
+                                    <span data-bind="text:$data.alias"></span>
+                                    <input type="checkbox" data-bind="checked:$data.included" />
                                 </li>
+    </script>
+    <script type="text/html" id="layers-template">
+                    <span data-bind="text:$data.name"></span>
+                    <ul class="layers" data-bind="foreach:$data.layers">
+                        <li>
+                            <span data-bind="text:$data.id"></span>
+                            <span data-bind="text:$data.name"></span>
+                            <input type="checkbox" data-bind="checked:$data.included" />
+                            <ul data-bind="template: {name: 'field-template', foreach:$data.fields}">
                             </ul>
                         </li>
+                    </ul>
+    </script>
+    <script type="text/html" id="service-template">
+                        <div data-bind="foreach: $data.Services">
+                            <div class="row">
+                                <span class="col1"><a data-bind="attr: {href:$data.url}" target="_blank"><span data-bind="text:$data.name">
+                                </span></a></span><span class="col2"><span data-bind="text:$data.type"></span></span>
+                                <span class="col3">
+                                    <input type="checkbox" data-bind="checked: $data.included" />
+                                    <img src="css/imgs/19-gear.png" data-bind="visible: $data.included, click:$data.configure" />
+                                </span>
+                            </div>
+                        </div>
+    
     </script>
 </head>
 <body>
@@ -39,7 +62,36 @@
         <div id="container">
             <div class="accordion">
                 <h3>
-                    <a href="#">Layers</a></h3>
+                    <a href="#">Layout</a></h3>
+                <div class="accordion-content">
+                    <div class="stylized">
+                        <div class="ui-widget collapse">
+                            <div class="ui-widget-header expander-header">
+                                <span class="ui-icon ui-expander" style="float: left; margin-right: 1.1em;"></span>
+                                <span class="expander-header-text" style="display: inline">Layout Design</span>
+                            </div>
+                            <div class="expander-content">
+                                <div id="layout">
+                                    <div data-bind="with:$root.selectedPage">
+                                        <label>Show Header</label>
+                                        <input type="checkbox" data-bind="checked: showHeader" />
+                                        <label>Show Footer</label>
+                                        <input type="checkbox" data-bind="checked: showFooter" />
+                                    </div>
+                                    <div class="mobile-templates">
+                                        <h3>Select a Template</h3>
+                                        <button id="btnSimpleTmpl" value="simple">Simple</button>
+                                        <button id="btnTabsTmpl" value="tabs">Tabs</button>
+                                        <button id="btnAccordTmpl" value="accordion">Accordion</button>
+                                        <button id="btnGrid" value="grid">Grid</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>
+                <a href="#">Layers</a></h3>
                 <div class="accordion-content">
                     <div class="add-server stylized">
                         <div class="ui-widget collapse">
@@ -52,18 +104,16 @@
                                     <h1>
                                         Add Server</h1>
                                     <span class="row">
-                                    <label>
-                                        Url<span class="small">REST endpoint</span></label>
-                                    <input type="text" id="inpUrl" value="http://www2.richlandmaps.com/arcgis/rest/services" />
-                                    </span>
-                                    <span class="row">
-                                    <label>
-                                        Token<span class="small">REST Token</span></label>
-                                    <input type="text" id="inpToken" value="" />
-                                    </span>
-                                    <span class="row">
-                                    <button id="btnGo" type="submit">
-                                        Go</button>
+                                        <label>
+                                            Url<span class="small">REST endpoint</span></label>
+                                        <input type="text" id="inpUrl" value="http://www2.richlandmaps.com/arcgis/rest/services" />
+                                    </span><span class="row">
+                                        <label>
+                                            Token<span class="small">REST Token</span></label>
+                                        <input type="text" id="inpToken" value="" />
+                                    </span><span class="row">
+                                        <button id="btnGo" type="submit">
+                                            Go</button>
                                     </span>
                                     <div class="spacer">
                                     </div>
@@ -71,44 +121,18 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Show all services, binds to root viewmodel object -->
                     <div id="services" class="stylized">
                         <h1>
                             Select services for use on mobile application</h1>
-                        <!-- ko foreach: $root.Services -->
-                        <div class="row">
-                            <span class="col1"><a data-bind="attr: {href:$data.url}" target="_blank"><span data-bind="text:$data.name">
-                            </span></a></span><span class="col2"><span data-bind="text:$data.type"></span></span>
-                            <span class="col3">
-                                <input type="checkbox" data-bind="checked: $data.included" />
-                                <img src="css/imgs/19-gear.png" data-bind="visible: $data.included, click:$data.beginConfigure" />    
-                            </span>
+                        <div data-bind="template: {name: 'service-template', afterRender: $root.servicesRendered}">
                         </div>
-                        <!-- /ko -->
-                        <button id="btnConfigure" data-bind="visible:$root.canConfigure">
-                            Configure</button>
                     </div>
+                    <!-- configure dialog, shows all layers in a service, binds to Service object -->
                     <div id="configure">
-                        <div id="tabs">
-                            <ul data-bind="foreach:$root.services_being_configured">
-                                <li class="tab-header"><a data-bind="attr: {href: '#tab' +$data.name}"><span data-bind="text:$data.name">
-                                </span></a></li>
-                            </ul>
-                            <!-- ko foreach: $root.services_being_configured -->
-                            <div data-bind="attr: {id: 'tab' +$data.name}" class="tab-content">
-                                <span data-bind="text:$data.name"></span><span data-bind="text:$data.type"></span>
-                                <span data-bind="text:$data.url"></span>
-                                <ul class="layers" data-bind="template: {name: 'layer-template', foreach: $data.layers}">
-                                </ul>
-                            </div>
-                            <!-- /ko -->
+                        <div class="layers-data" data-bind="template: {name: 'layers-template', afterRender: $data.layersRendered}">
                         </div>
                     </div>
-                </div>
-                <h3>
-                    <a href="#">Layout</a></h3>
-                <div class="accordion-content">
-                    <p>
-                        Layout stuff</p>
                 </div>
                 <h3>
                     <a href="#">Widgets</a></h3>
@@ -118,6 +142,7 @@
         </div>
     </div>
     <div class="ui-layout-center">
+        <!-- iframe id="mframe" src="mobile.html" data-bind="bindIframe: $data"></iframe-->
     </div>
     <!-- div class="ui-layout-east">
     </div -->
