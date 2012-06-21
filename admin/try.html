@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="adapt/assets/css/960.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/taitems-Aristo-jQuery-UI-Theme/css/Aristo/Aristo.css" rel="stylesheet"
+        type="text/css" />
+    <link href="jquery.mobile-1.1.0/jquery.mobile-1.1.0.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .border
+        {
+            border: 1px dotted #aaa;
+        }
+        .selected
+        {
+            border: 1px dotted #e00;
+        }
+        .add
+        {
+            height: 24px;
+            width: 64px;
+            border: 1px solid #aaa;
+            margin: 2px;
+        }
+        #tools
+        {
+            list-style: none;
+        }
+        .preview, .editor
+        {
+            border: 1px solid #aaa;
+            position: relative;
+            width: 400px;
+            height: 600px;
+        }
+    </style>
+    <script src="jquery-ui-1.8.21.custom/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="jquery-ui-1.8.21.custom/js/jquery-ui-1.8.21.custom.min.js" type="text/javascript"></script>
+    <script src="js/knockout-2.0.0.js" type="text/javascript"></script>
+    <script src="jquery.mobile-1.1.0/jquery.mobile-1.1.0.js" type="text/javascript"></script>
+    <script type="text/html" id="tmpl_text_view">
+        <span data-bind="text: $data.text, click: $root.select"></span>
+    </script>
+    <script type="text/html" id="tmpl_text_edit">
+        <input type="textbox" data-bind="value: $data.text"></input>
+    </script>
+    <script type="text/html" id="tmpl_textbox_view">
+        <span data-bind="text: $data.text, click: $root.select"></span>
+    </script>
+    <script type="text/html" id="tmpl_textbox_edit">
+        <input type="textbox" data-bind="value: $data.text"></input>
+    </script>
+    <script type="text/html" id="tmpl_radio_view">
+        <select data-bind="options: $data.options, click: $root.select"></select>
+    </script>
+    <script type="text/html" id="tmpl_radio_edit">
+        <input id="inpOptionAdd" type="text"></input>
+        <button data-bind="click:addOption">Add</button>
+    </script>
+    <script type="text/html" id="tmpl_grid_view">
+            <div data-bind="css:{'ui-grid-a': $data.blocks().length == 2, 'ui-grid-b': $data.blocks().length == 3, 'ui-grid-c': $data.blocks().length == 4, 'ui-grid-d': $data.blocks().length == 5}">
+                <!-- ko foreach: $data.blocks -->
+                    <div data-bind="css:{'ui-block-a': $data.blockNum() == 1, 'ui-block-b': $data.blockNum() == 2, 'ui-block-c': $data.blockNum() == 3, 'ui-block-d': $data.blockNum() == 4}">
+                        <div class="border" data-bind="click: $root.select">
+                            <p><span data-bind="text: $data.blockNum()"></span></p>
+                            <div data-bind="template: {name: getViewTmpl, foreach: $data.elements}"></div>
+                        </div>
+                    </div>
+                <!-- /ko -->
+            </div>
+    </script>
+    <script type="text/html" id="tmpl_grid_edit">
+        <label>Number of Columns:</label>
+        <input data-bind="value:$data.columns"></input>
+    </script>
+    <script type="text/html" id="tmpl_page_view">
+        <div class="content" data-bind="foreach:elements">
+            <div class="row" data-bind="template:{name: getViewTmpl, data: $data}">
+            </div>
+        </div>
+    </script>
+    <script type="text/javascript">
+        var Element = function (id, type, parent) {
+            var self = this;
+            self.id = ko.observable(id);
+            self.type = ko.observable(type);
+            self.types = ['grid', 'text', 'button', 'radio'];
+            self.selected = ko.observable(true);
+            self.parent = ko.observable(parent);
+            self.isLayout = ko.computed(function () {
+                if (self.type() == 'block') {
+                    return true;
+                }
+                return false;
+            });
+            //add properties on the basis of type
+            switch (self.type()) {
+                case "text":
+                    self.text = ko.observable("testttt");
+                    break;
+                case "block":
+                    self.blockNum = ko.observable(1);
+                    self.elements = ko.observableArray([]);
+                    break;
+                case "grid":
+                    self.columns = ko.observable(1);
+                    self.blocks = ko.observableArray([]);
+                    self.columns.subscribe(function (newValue) {
+                        //number of colums has changed so create blocks foreach content
+                        // empty the blocks first
+                        self.blocks.removeAll();
+                        // todo: preserve content while emptying blocks
+                        for (var i = 0; i < newValue; i++) {
+                            var block = new Element("grid_" + self.id() + "_block" + i, "block", self);
+                            block.blockNum(i + 1);
+                            self.blocks.push(block);
+                        }
+                    });
+                    break;
+                case "button":
+                    break;
+                case "radio":
+                    self.options = ko.observableArray([]);
+                    self.addOption = function () {
+                        var value = $('#inpOptionAdd').val();
+                        self.options.push(value);
+                    }
+                    break;
+                default:
+                    alert("Invalid type of element being added");
+                    break;
+            };
+            self.getViewTmpl = function (elem) {
+                var tmpl_name = "";
+                switch (elem.type()) {
+                    case "grid":
+                        tmpl_name = "tmpl_grid_view";
+                        break;
+                    case "text":
+                        tmpl_name = "tmpl_text_view";
+                        break;
+                    case "button":
+                        tmpl_name = "tmpl_button_view";
+                        break;
+                    case "radio":
+                        tmpl_name = "tmpl_radio_view";
+                        break;
+                }
+                return tmpl_name;
+            };
+            self.getEditTmpl = function (elem) {
+                var tmpl_name = "";
+                switch (elem.type()) {
+                    case "grid":
+                        tmpl_name = "tmpl_grid_edit";
+                        break;
+                    case "text":
+                        tmpl_name = "tmpl_text_edit";
+                        break;
+                    case "button":
+                        tmpl_name = "tmpl_button_edit";
+                        break;
+                    case "radio":
+                        tmpl_name = "tmpl_radio_edit";
+                        break;
+                }
+                return tmpl_name;
+            };
+        };
+
+        var Page = function (id, title) {
+            var self = this;
+            self.id = "page_" + id;
+            self.title = ko.observable(title);
+            self.showHeader = ko.observable(false);
+            self.showFooter = ko.observable(false);
+            self.elements = ko.observableArray([]);
+            self.selectedElement = ko.observable(null);
+            self.elementsContainer = ko.observable(self);
+            self.select = function (elem) {
+                if (elem.isLayout()) {
+                    alert("Layout element");
+                    self.elementsContainer(elem);
+                } else {
+                    self.elementsContainer(self);
+                    for (var i = 0, il = self.elements().length; i < il; i++) {
+                        self.elements()[i].selected(false);
+                    }
+                    elem.selected(true);
+                    self.selectedElement(elem);
+                }
+            };
+            self.remove = function (elem) {
+                self.elements.remove(elem);
+                if (self.elements().length > 0) {
+                    var indx = self.elements().length - 1;
+                    self.select(self.elements()[indx]);
+                }
+            };
+            self.numElements = ko.computed(function () {
+                return self.elements().length;
+            });
+            self.addElement = function (type) {
+                var parent = self.elementsContainer();
+                var elem = new Element("elem_" + self.numElements(), type, parent);
+                parent.elements.push(elem);
+                page.selectedElement(elem);
+                self.refreshView();
+            };
+            self.refreshView = function () {
+                alert('refresh');
+                $('.page').trigger('pagecreate');
+            };
+        };
+
+        var page;
+        $(document).ready(function () {
+            $('#tools .add').click(function () {
+                var type = $(this).text().toLowerCase();
+                page.addElement(type);
+            });
+
+            $('#tools .add').draggable(function () {
+
+            });
+
+            $("#droppable").droppable({
+                drop: function (event, ui) {
+                    $(this)
+					.addClass("ui-state-highlight")
+					.find("p")
+						.html("Dropped!");
+                }
+            });
+
+            page = new Page("0", "test page");
+
+            ko.applyBindings(page);
+            $('#editor').dialog();
+        });
+
+    </script>
+</head>
+<body>
+    <div class="container_12">
+        <div class="grid_12">
+            <div class="grid_3 omega">
+                <ul class="tools" id="tools">
+                    <li>
+                        <input type="checkbox" data-bind="checked:$root.showHeader" /><span>Show Header</span></li>
+                    <li>
+                        <input type="checkbox" data-bind="checked:$root.showFooter" /><span>Show Footer</span></li>
+                    <li>
+                        <div class="add">Radio</div>
+                    </li>
+                    <li>
+                        <div class="add">Text</div>
+                    </li>
+                    <li>
+                        <div class="add">Grid</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="grid_6 alpha omega">
+                <div class="preview">
+                    <div class="page" data-role="page">
+                        <div data-role="header">
+                            <h1>
+                                <span data-bind="text:$root.title"></span>Title</h1>
+                        </div>
+                        <div data-role="content" data-bind="template: {name: 'tmpl_page_view', data: $data, afterRender: refreshView}">
+                        </div>
+                        <div data-role="footer">
+                            <h1>
+                                Footer</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid_3 alpha">
+                <div id="editor">
+                    <h3>
+                        <span data-bind="text: $root.title"></span>
+                    </h3>
+                    <div class="content" data-bind="with:$data.selectedElement">
+                        <div class="row" data-bind="template: {name:getEditTmpl}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
