@@ -58,16 +58,19 @@
         <button data-bind="click:addOption">Add</button>
     </script>
     <script type="text/html" id="tmpl_grid_view">
-            <div data-bind="css:{'ui-grid-a': $data.blocks().length == 2, 'ui-grid-b': $data.blocks().length == 3, 'ui-grid-c': $data.blocks().length == 4, 'ui-grid-d': $data.blocks().length == 5}">
-                <!-- ko foreach: $data.blocks -->
-                    <div data-bind="css:{'ui-block-a': $data.blockNum() == 1, 'ui-block-b': $data.blockNum() == 2, 'ui-block-c': $data.blockNum() == 3, 'ui-block-d': $data.blockNum() == 4}">
-                        <div class="border" data-bind="click: $root.select">
-                            <p><span data-bind="text: $data.blockNum()"></span></p>
-                            <div data-bind="template: {name: getViewTmpl, foreach: $data.elements}"></div>
-                        </div>
+        <div data-bind="css:{'ui-grid-a': $data.blocks().length == 2, 'ui-grid-b': $data.blocks().length == 3, 'ui-grid-c': $data.blocks().length == 4, 'ui-grid-d': $data.blocks().length == 5}">
+            <!-- ko foreach: $data.blocks -->
+            <div data-bind="css:{'ui-block-a': $data.blockNum() == 1, 'ui-block-b': $data.blockNum() == 2, 'ui-block-c': $data.blockNum() == 3, 'ui-block-d': $data.blockNum() == 4}">
+                <div data-bind="click: $root.select, css:{selected: $data.selected}">
+                    <p>
+                        <span data-bind="text: $data.blockNum()"></span>
+                    </p>
+                    <div data-bind="template: {name: getViewTmpl, foreach: $data.elements}">
                     </div>
-                <!-- /ko -->
+                </div>
             </div>
+            <!-- /ko -->
+        </div>
     </script>
     <script type="text/html" id="tmpl_grid_edit">
         <label>Number of Columns:</label>
@@ -85,7 +88,7 @@
             self.id = ko.observable(id);
             self.type = ko.observable(type);
             self.types = ['grid', 'text', 'button', 'radio'];
-            self.selected = ko.observable(true);
+            self.selected = ko.observable(false);
             self.parent = ko.observable(parent);
             self.isLayout = ko.computed(function () {
                 if (self.type() == 'block') {
@@ -179,8 +182,8 @@
             self.elementsContainer = ko.observable(self);
             self.select = function (elem) {
                 if (elem.isLayout()) {
-                    alert("Layout element");
                     self.elementsContainer(elem);
+                    elem.selected(true);
                 } else {
                     self.elementsContainer(self);
                     for (var i = 0, il = self.elements().length; i < il; i++) {
